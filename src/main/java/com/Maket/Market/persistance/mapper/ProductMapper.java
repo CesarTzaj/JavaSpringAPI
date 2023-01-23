@@ -10,21 +10,20 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class})
-
 public interface ProductMapper {
     @Mappings({
         @Mapping(source = "productId", target = "productIdDTO"),
         @Mapping(source = "name", target = "nameDTO"),
-        @Mapping(source = "domainCategoryId", target = "categoryIdDTO"),
+        @Mapping(source = "categoryId", target = "categoryIdDTO"),
         @Mapping(source = "price", target = "priceDTO"),
         @Mapping(source = "stockAvailable", target = "stockAvailableDTO"),
         @Mapping(source = "status", target = "statusDTO"),
         @Mapping(source = "category", target = "categoryDTO"),
     })
     ProductDTO toProductDTO(Product product);    
-    List<ProductDTO> toProductDTOs(List<Product> product);
+    List<ProductDTO> toProductDTOs(List<Product> products);
     
     @InheritInverseConfiguration
     @Mapping(target = "barcode", ignore = true)
-    Product toProduct(ProductDTO domainProduct);
+    Product toProduct(ProductDTO productDTO);
 }

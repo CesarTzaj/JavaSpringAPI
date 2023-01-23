@@ -6,13 +6,11 @@ import com.Maket.Market.persistance.crud.ProductCrudRepository;
 import com.Maket.Market.persistance.entity.Product;
 import com.Maket.Market.persistance.mapper.ProductMapper;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 @Repository // le indicamos a la clase que es la encarga de interactuar con la base de datos.
 //@Component // le indicamos que es un componente de spring.El primero es mejor porque indicamos el tipo de componente que es.@Component
