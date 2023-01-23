@@ -10,6 +10,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class})
+
 public interface ProductMapper {
     @Mappings({
         @Mapping(source = "productId", target = "productIdDTO"),

@@ -5,18 +5,23 @@ import com.Maket.Market.domain.repository.ProductRepositoryDTO;
 import com.Maket.Market.persistance.crud.ProductCrudRepository;
 import com.Maket.Market.persistance.entity.Product;
 import com.Maket.Market.persistance.mapper.ProductMapper;
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 @Repository // le indicamos a la clase que es la encarga de interactuar con la base de datos.
-//@Component // le indicamos que es un componente de spring.El primero es mejor porque indicamos el tipo de componente que es.
+//@Component // le indicamos que es un componente de spring.El primero es mejor porque indicamos el tipo de componente que es.@Component
 public class ProductRespository implements ProductRepositoryDTO{
-     @Autowired
+    @Autowired
     private ProductCrudRepository productCrudRepository;
     @Autowired
     private ProductMapper productMapper;
+    
     @Override
     public List<ProductDTO> getAll(){
         List<Product> products = (List<Product>) productCrudRepository.findAll();
@@ -25,7 +30,7 @@ public class ProductRespository implements ProductRepositoryDTO{
     
     @Override
     public Optional<List<ProductDTO>> getByCategory(int CategoryId){
-        List<Product> products = productCrudRepository.findByCategoryIdOrderByNombreAsc(CategoryId);
+        List<Product> products = productCrudRepository.findByCategoryIdOrderByNameAsc(CategoryId);
         return Optional.of(productMapper.toProductDTOs(products));
     }
 
@@ -37,7 +42,7 @@ public class ProductRespository implements ProductRepositoryDTO{
     
     @Override
     public Optional<ProductDTO> getProduct(int productId){
-        return productCrudRepository.findById(productId).map(product -> productMapper.toProductDTO(product));
+        return productCrudRepository.findById(productId).map(product -> productMapper.toProductDTO((product)));
     }
 
     @Override

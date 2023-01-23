@@ -1,10 +1,11 @@
 package com.Maket.Market.persistance.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class PurchasesProductPK {
+public class PurchasesProductPK implements Serializable{
     @Column(name = "category_id ")
     private Integer purchaseID;
     

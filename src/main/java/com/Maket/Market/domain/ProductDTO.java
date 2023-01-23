@@ -65,4 +65,6 @@ public class ProductDTO {
     public void setCategoryDTO(CategoryDTO categoryDTO) {
         this.categoryDTO = categoryDTO;
     }
+
+    
 }
