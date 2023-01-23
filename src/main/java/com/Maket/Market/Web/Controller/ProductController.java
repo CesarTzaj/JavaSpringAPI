@@ -1,5 +1,5 @@
 
-package com.Maket.Market.Web.Controller;
+package com.Maket.Market.web.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
