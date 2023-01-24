@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product")
 public class Product {
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
     private Integer productId;
@@ -72,11 +72,11 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getOnStock() {
+    public Integer getStockAvailable() {
         return stockAvailable;
     }
 
-    public void setOnStock(Integer stockAvailable) {
+    public void setStockAvailable(Integer stockAvailable) {
         this.stockAvailable = stockAvailable;
     }
 
@@ -87,4 +87,14 @@ public class Product {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    
 }

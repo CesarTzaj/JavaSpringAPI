@@ -26,7 +26,7 @@ public class PurchasesProduct {
     @ManyToOne
     @JoinColumn(name = "product_id", updatable = false, insertable = false)
     private Product product;
-    
+
     public PurchasesProductPK getId() {
         return id;
     }
@@ -58,4 +58,22 @@ public class PurchasesProduct {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+    
+    
 }

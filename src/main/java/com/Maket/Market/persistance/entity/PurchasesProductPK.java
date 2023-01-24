@@ -11,7 +11,7 @@ public class PurchasesProductPK implements Serializable{
     
     @Column(name = "product_id")
     private Integer productID;
-    
+
     public Integer getPurchaseID() {
         return purchaseID;
     }
@@ -27,4 +27,6 @@ public class PurchasesProductPK implements Serializable{
     public void setProductID(Integer productID) {
         this.productID = productID;
     }
+    
+   
 }

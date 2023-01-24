@@ -58,4 +58,22 @@ public class Customer {
     public void setPhoneNumber(Double phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<Purchase> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchase> purchases) {
+        this.purchases = purchases;
+    }
+
+    
 }

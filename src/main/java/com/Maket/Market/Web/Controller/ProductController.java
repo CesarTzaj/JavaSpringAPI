@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-    @GetMapping("/pruesba")
+    @GetMapping("/prueba")
     public String a(){
         return "asf";
     }
     @Autowired
     private ProductService productService;
     
-    @GetMapping("/prueba")
+    @GetMapping("/all")
     public List<ProductDTO> getAll() {
         return productService.getAll();
     }
