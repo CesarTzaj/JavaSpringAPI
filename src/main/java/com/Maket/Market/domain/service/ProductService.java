@@ -31,17 +31,21 @@ public class ProductService {
     }
     
     public Boolean delete(int productId){
-        // Esta es la forma recomendada de crearlo. 
-    //    return getProduct(productId).map(product ->{
-    //        productRepositoryDTO.delete(productId);
-    //        return true;
-     //   }).orElse(false);
+       // Esta es la forma recomendada de crearlo. 
+        return getProduct(productId).map(product ->{
+            productRepositoryDTO.delete(productId);
+           return true;
+       }).orElse(false);
+     
      //otra forma para que nos devuelva un boolean 
-     if(getProduct(productId).isPresent()){
-     productRepositoryDTO.delete(productId);
-     return true;
-     }else{
-     return false;
-     }
+    // if(getProduct(productId).isPresent()){
+     //productRepositoryDTO.delete(productId);
+     //return true;
+     //}else{
+     //return false;
+     //}
     } 
+    public Optional<List<ProductDTO>> getLowProduct(int quantity){
+        return productRepositoryDTO.getLowProduct(quantity);
+    }
 }

@@ -21,7 +21,8 @@ public class Customer {
     
     @Column(name = "phone_number")
     private Double phoneNumber;
-    
+
+    private String address;
     private String email;
     
     @OneToMany(mappedBy = "customer")
@@ -59,6 +60,14 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -74,6 +83,4 @@ public class Customer {
     public void setPurchases(List<Purchase> purchases) {
         this.purchases = purchases;
     }
-
-    
 }

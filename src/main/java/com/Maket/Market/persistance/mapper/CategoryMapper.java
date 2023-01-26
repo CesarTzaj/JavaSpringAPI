@@ -2,6 +2,7 @@ package com.Maket.Market.persistance.mapper;
 
 import com.Maket.Market.domain.CategoryDTO;
 import com.Maket.Market.persistance.entity.Category;
+import java.util.List;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -14,9 +15,10 @@ public interface CategoryMapper {
         @Mapping(source = "description", target = "categoryDTO"),
         @Mapping(source = "status", target = "statusDTO"),
     })
-    CategoryDTO toDomainCategory(Category category);
+    CategoryDTO toCategoryDTO(Category category);
+    List<CategoryDTO> toCategoryDTOS(List<Category> category);
     
     @InheritInverseConfiguration
     @Mapping(target = "products", ignore = true)
-    Category toCategory(CategoryDTO domainCategory);
+    Category toCategory(CategoryDTO categoryDTO);
 }

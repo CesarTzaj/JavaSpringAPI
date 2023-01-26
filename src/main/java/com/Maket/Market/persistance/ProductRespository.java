@@ -40,7 +40,8 @@ public class ProductRespository implements ProductRepositoryDTO{
     
     @Override
     public Optional<ProductDTO> getProduct(int productId){
-        return productCrudRepository.findById(productId).map(product -> productMapper.toProductDTO((product)));
+        return productCrudRepository.findById(productId)
+                .map(product -> productMapper.toProductDTO((product)));
     }
 
     @Override
@@ -52,4 +53,5 @@ public class ProductRespository implements ProductRepositoryDTO{
     public void delete(int productId){
     productCrudRepository.deleteById(productId);
     }
+
 }

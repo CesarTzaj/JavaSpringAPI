@@ -6,46 +6,74 @@ import com.Maket.Market.domain.service.ProductService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/products")
 public class ProductController {
-    @GetMapping("/prueba")
-    public String a(){
-        return "asf";
-    }
+    
     @Autowired
     private ProductService productService;
     
     @GetMapping("/all")
-    public List<ProductDTO> getAll() {
-        return productService.getAll();
+    public ResponseEntity<List<ProductDTO>> getAll() {
+        return new ResponseEntity<>(productService.getAll(), HttpStatus.OK) ;
     }
     
-    @GetMapping("/{id}")
-    public Optional<ProductDTO> getProduct(@PathVariable("id") int productId) {
-        return productService.getProduct(productId);
+     @GetMapping("/{id}")
+    public ResponseEntity<ProductDTO> getProduct(@PathVariable("id") int productId) {
+        return productService.getProduct(productId)
+            .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     
     @GetMapping("/category/{id}")
-    public Optional<List<ProductDTO>> getByCategory(@PathVariable("id") int categoryId){
-    return productService.getByCategory(categoryId);
+    public ResponseEntity<List<ProductDTO>> getByCategory(@PathVariable("id") int categoryId){
+    return (ResponseEntity<List<ProductDTO>>) productService.getByCategory(categoryId)
+            .map(products -> {
+                if (products.size()>0) {
+                     return new ResponseEntity<>(products, HttpStatus.OK);
+                 } else {
+                   return new ResponseEntity<>(HttpStatus.NOT_FOUND);                           
+                }
+            })
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     
+    @GetMapping("/lowProducts")
+    public ResponseEntity<List<ProductDTO>> getLowProduct(@RequestParam int quantity){
+        return (ResponseEntity<List<ProductDTO>>) productService.getLowProduct(quantity)
+                .map(products -> {
+                if (products.size()>0) {
+                    return new ResponseEntity<>(products, HttpStatus.OK);
+                } else {
+                    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                }
+                })
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }   
+    
     @PostMapping("/save")
-    public ProductDTO save(@RequestBody ProductDTO productDTO){
-    return productService.save(productDTO);
+    public ResponseEntity<ProductDTO> save(@RequestBody ProductDTO productDTO){
+    return new ResponseEntity<>(productService.save(productDTO), HttpStatus.CREATED);
     }
  
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable("id") int productId){
-    return productService.delete(productId);
+    public ResponseEntity delete(@PathVariable("id") int productId){
+        if (productService.delete(productId)) {
+            return new ResponseEntity(HttpStatus.OK);
+        }else{
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 }
