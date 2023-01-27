@@ -5,6 +5,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 
 @Entity
@@ -19,7 +20,8 @@ public class PurchasesProduct {
     
     private Boolean status;
 
-        @ManyToOne
+    @ManyToOne
+    @MapsId("purchaseId")
     @JoinColumn(name = "purches_id", updatable = false, insertable = false)
     private Purchase purchase;
     

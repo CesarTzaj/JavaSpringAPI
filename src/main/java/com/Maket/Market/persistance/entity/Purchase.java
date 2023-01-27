@@ -1,7 +1,9 @@
 
 package com.Maket.Market.persistance.entity;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,15 +17,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "purchases")
 public class Purchase {
-   @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "	purches_id")
-    private Integer purchaseID;
     
-    @Column(name = "customer_id	")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "purches_id")
+    private Integer purchaseId;
+    
+    @Column(name = "customer_id")
     private Integer customerId;
     
-    private String date;
+    private LocalDateTime date;
     
     @Column(name = "payment_method")
     private String paymentMethod;
@@ -36,15 +39,15 @@ public class Purchase {
     @JoinColumn(name = "customer_id", insertable = false, updatable = false)
     private Customer customer;
     
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "purchase", cascade = {CascadeType.ALL})
     private List<PurchasesProduct> purchasesProduct;
 
-    public Integer getPurchaseID() {
-        return purchaseID;
+    public Integer getPurchaseId() {
+        return purchaseId;
     }
 
-    public void setPurchaseID(Integer purchaseID) {
-        this.purchaseID = purchaseID;
+    public void setPurchaseId(Integer purchaseId) {
+        this.purchaseId = purchaseId;
     }
 
     public Integer getCustomerId() {
@@ -55,11 +58,11 @@ public class Purchase {
         this.customerId = customerId;
     }
 
-    public String getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -102,6 +105,6 @@ public class Purchase {
     public void setPurchasesProduct(List<PurchasesProduct> purchasesProduct) {
         this.purchasesProduct = purchasesProduct;
     }
-    
-     
+
+   
 }

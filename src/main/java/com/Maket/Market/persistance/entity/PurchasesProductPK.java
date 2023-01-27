@@ -7,26 +7,28 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class PurchasesProductPK implements Serializable{
     @Column(name = "category_id ")
-    private Integer purchaseID;
+    private Integer purchaseId;
     
     @Column(name = "product_id")
-    private Integer productID;
+    private Integer productId;
 
-    public Integer getPurchaseID() {
-        return purchaseID;
+    public Integer getPurchaseId() {
+        return purchaseId;
     }
 
-    public void setPurchaseID(Integer purchaseID) {
-        this.purchaseID = purchaseID;
+    public void setPurchaseId(Integer purchaseId) {
+        this.purchaseId = purchaseId;
     }
 
-    public Integer getProductID() {
-        return productID;
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setProductID(Integer productID) {
-        this.productID = productID;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
+
+
     
    
 }
