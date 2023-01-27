@@ -50,9 +50,7 @@ public class CustomerController {
         return new ResponseEntity(HttpStatus.OK);
         }else{
         return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
-        
-        
+        }               
     }
 }
 

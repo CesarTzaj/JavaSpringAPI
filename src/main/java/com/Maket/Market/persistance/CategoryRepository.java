@@ -34,7 +34,7 @@ public class CategoryRepository implements CategoryRepositoryDTO {
     @Override
     public CategoryDTO save(CategoryDTO categoryDTO) {
         Category category = categoryMapper.toCategory(categoryDTO);
-        return categoryMapper.toCategoryDTO(category);
+        return categoryMapper.toCategoryDTO(categoryCrudRepository.save(category));
     }
 
     @Override

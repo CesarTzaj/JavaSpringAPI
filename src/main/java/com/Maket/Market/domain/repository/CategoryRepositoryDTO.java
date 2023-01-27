@@ -8,7 +8,7 @@ public interface CategoryRepositoryDTO {
 
     List<CategoryDTO> getAll();
 
-    Optional<CategoryDTO> getByCategoryId(int CategoryId);
+    Optional<CategoryDTO> getByCategoryId(int CategoryId);       
 
     CategoryDTO save(CategoryDTO categoryDTO);
 

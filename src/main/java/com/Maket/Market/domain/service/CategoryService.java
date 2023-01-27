@@ -2,6 +2,7 @@ package com.Maket.Market.domain.service;
 
 import com.Maket.Market.domain.CategoryDTO;
 import com.Maket.Market.domain.repository.CategoryRepositoryDTO;
+import com.Maket.Market.persistance.CategoryRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
