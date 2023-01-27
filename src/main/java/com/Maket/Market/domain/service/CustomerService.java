@@ -1,7 +1,7 @@
 package com.Maket.Market.domain.service;
 
 import com.Maket.Market.domain.CustomerDTO;
-import com.Maket.Market.persistance.CustomerRepository;
+import com.Maket.Market.domain.repository.CustomerRepositoryDTO;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService {
     @Autowired
-    private CustomerRepository customerRepository;
+    private CustomerRepositoryDTO customerRepository;
     
     public List<CustomerDTO> getAll(){
         return customerRepository.getAll();
