@@ -10,7 +10,7 @@ import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring", uses = {PurchaseItemMapper.class})
 public interface PurchaseMapper {
-    
+
     @Mappings({
         @Mapping(source = "purchaseId", target = "purchaseIdDTO"),
         @Mapping(source = "customerId", target = "customerIdDTO"),
@@ -21,8 +21,9 @@ public interface PurchaseMapper {
         @Mapping(source = "purchasesProduct", target = "purchaseItemDTO")
     })
     PurchaseDTO toPurchaseDTO(Purchase purchase);
+
     List<PurchaseDTO> toPurchaseDTOS(List<Purchase> purchases);
-    
+
     @InheritInverseConfiguration
     @Mapping(target = "customer", ignore = true)
     Purchase toPurchase(PurchaseDTO purchaseDTO);

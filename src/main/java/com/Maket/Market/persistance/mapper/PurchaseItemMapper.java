@@ -2,6 +2,7 @@ package com.Maket.Market.persistance.mapper;
 
 import com.Maket.Market.domain.PurchaseItemDTO;
 import com.Maket.Market.persistance.entity.PurchasesProduct;
+import java.util.List;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -17,6 +18,7 @@ public interface PurchaseItemMapper {
         @Mapping(source = "status", target = "activeDTO")
     })
     PurchaseItemDTO toPurchaseItemDTO(PurchasesProduct purchasesProduct);
+    List<PurchaseItemDTO> toPurchaseItemDTOS(List<PurchasesProduct> purchasesProduct);
     
     @InheritInverseConfiguration
     @Mappings({
@@ -25,4 +27,5 @@ public interface PurchaseItemMapper {
         @Mapping(target = "id.purchaseId", ignore = true),
     })
     PurchasesProduct toPurchasesProduct(PurchaseItemDTO purchaseItemDTO);
+
 }

@@ -2,6 +2,7 @@
 package com.Maket.Market.domain.repository;
 
 import com.Maket.Market.domain.PurchaseDTO;
+import com.Maket.Market.domain.PurchaseItemDTO;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,4 +1,3 @@
-
 package com.Maket.Market.persistance.entity;
 
 import javax.persistence.EmbeddedId;
@@ -11,20 +10,21 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "shopping_products")
 public class PurchasesProduct {
-     @EmbeddedId
+
+    @EmbeddedId
     private PurchasesProductPK id;
-    
+
     private Integer quantity;
-    
+
     private Double total;
-    
+
     private Boolean status;
 
     @ManyToOne
     @MapsId("purchaseId")
-    @JoinColumn(name = "purches_id", updatable = false, insertable = false)
+    @JoinColumn(name = "purchase_id", updatable = false, insertable = false)
     private Purchase purchase;
-    
+
     @ManyToOne
     @JoinColumn(name = "product_id", updatable = false, insertable = false)
     private Product product;
@@ -76,6 +76,5 @@ public class PurchasesProduct {
     public void setProduct(Product product) {
         this.product = product;
     }
-    
-    
+
 }

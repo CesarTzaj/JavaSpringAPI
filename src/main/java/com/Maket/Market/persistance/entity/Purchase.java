@@ -33,7 +33,7 @@ public class Purchase {
     
     private String comments;
     
-    private Boolean status;
+    private String status;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", insertable = false, updatable = false)
@@ -41,7 +41,7 @@ public class Purchase {
     
     @OneToMany(mappedBy = "purchase", cascade = {CascadeType.ALL})
     private List<PurchasesProduct> purchasesProduct;
-
+    
     public Integer getPurchaseId() {
         return purchaseId;
     }
@@ -82,11 +82,11 @@ public class Purchase {
         this.comments = comments;
     }
 
-    public Boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -105,6 +105,5 @@ public class Purchase {
     public void setPurchasesProduct(List<PurchasesProduct> purchasesProduct) {
         this.purchasesProduct = purchasesProduct;
     }
-
-   
+  
 }

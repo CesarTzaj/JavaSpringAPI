@@ -61,7 +61,7 @@ public class PurchaseDTO {
     public void setStatusDTO(String statusDTO) {
         this.statusDTO = statusDTO;
     }
-
+    
     public List<PurchaseItemDTO> getPurchaseItemDTO() {
         return purchaseItemDTO;
     }

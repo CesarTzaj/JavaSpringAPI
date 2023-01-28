@@ -2,6 +2,7 @@
 package com.Maket.Market.web.Controller;
 
 import com.Maket.Market.domain.PurchaseDTO;
+import com.Maket.Market.domain.PurchaseItemDTO;
 import com.Maket.Market.domain.service.PurchaseService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

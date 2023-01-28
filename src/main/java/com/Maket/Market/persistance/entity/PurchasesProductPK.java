@@ -6,11 +6,11 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class PurchasesProductPK implements Serializable{
-    @Column(name = "category_id ")
-    private Integer purchaseId;
-    
     @Column(name = "product_id")
     private Integer productId;
+    
+    @Column(name = "purchase_id")
+    private Integer purchaseId;
 
     public Integer getPurchaseId() {
         return purchaseId;
