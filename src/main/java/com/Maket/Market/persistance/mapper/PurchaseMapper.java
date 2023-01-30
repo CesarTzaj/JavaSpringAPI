@@ -18,7 +18,7 @@ public interface PurchaseMapper {
         @Mapping(source = "paymentMethod", target = "paymentMethodDTO"),
         @Mapping(source = "comments", target = "commentDTO"),
         @Mapping(source = "status", target = "statusDTO"),
-        @Mapping(source = "purchasesProduct", target = "purchaseItemDTO")
+        @Mapping(source = "products", target = "purchaseItemDTO")
     })
     PurchaseDTO toPurchaseDTO(Purchase purchase);
 

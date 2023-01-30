@@ -39,7 +39,7 @@ public class PurchaseRepository implements PurchaseRespositoryDTO{
     @Override
     public PurchaseDTO save(PurchaseDTO purchaseDTO) {        
         Purchase purchase = mapper.toPurchase(purchaseDTO);
-        purchase.getPurchasesProduct().forEach(product -> product.setPurchase(purchase));
+        purchase.getProducts().forEach(product -> product.setPurchase(purchase));
 
         return mapper.toPurchaseDTO(purchaseCrudRepository.save(purchase));
     }

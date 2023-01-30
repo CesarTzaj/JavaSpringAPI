@@ -20,7 +20,7 @@ public class Purchase {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "purches_id")
+    @Column(name = "purchase_id")
     private Integer purchaseId;
     
     @Column(name = "customer_id")
@@ -39,8 +39,8 @@ public class Purchase {
     @JoinColumn(name = "customer_id", insertable = false, updatable = false)
     private Customer customer;
     
-    @OneToMany(mappedBy = "purchase", cascade = {CascadeType.ALL})
-    private List<PurchasesProduct> purchasesProduct;
+    @OneToMany(mappedBy = "purchase", cascade = {CascadeType.MERGE})
+    private List<PurchasesProduct> products;
     
     public Integer getPurchaseId() {
         return purchaseId;
@@ -98,12 +98,12 @@ public class Purchase {
         this.customer = customer;
     }
 
-    public List<PurchasesProduct> getPurchasesProduct() {
-        return purchasesProduct;
+    public List<PurchasesProduct> getProducts() {
+        return products;
     }
 
-    public void setPurchasesProduct(List<PurchasesProduct> purchasesProduct) {
-        this.purchasesProduct = purchasesProduct;
+    public void setProducts(List<PurchasesProduct> products) {
+        this.products = products;
     }
   
 }
