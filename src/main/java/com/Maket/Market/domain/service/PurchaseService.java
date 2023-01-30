@@ -19,8 +19,12 @@ public class PurchaseService {
         return purchaseRepository.getAll();
     }
     
-    public Optional<List<PurchaseDTO>> findByCustomerId(String customerId){
+    public Optional<List<PurchaseDTO>> findByCustomerId(int customerId){
         return purchaseRepository.getByCustomerId(customerId);
     }
+    
+    public PurchaseDTO save(PurchaseDTO purchaseDTO){
+        return purchaseRepository.save(purchaseDTO);
+    }          
     
 }

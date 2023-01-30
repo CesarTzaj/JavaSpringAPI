@@ -31,19 +31,17 @@ public class PurchaseRepository implements PurchaseRespositoryDTO{
     }
 
     @Override
-    public Optional<List<PurchaseDTO>> getByCustomerId(String customerId) {
+    public Optional<List<PurchaseDTO>> getByCustomerId(int customerId) {
         return purchaseCrudRepository.findByCustomerId(customerId)
                 .map(purchase -> mapper.toPurchaseDTOS(purchase));              
     }
 
     @Override
-    public PurchaseDTO save(PurchaseDTO purchaseDTO) {
-        /*
+    public PurchaseDTO save(PurchaseDTO purchaseDTO) {        
         Purchase purchase = mapper.toPurchase(purchaseDTO);
         purchase.getPurchasesProduct().forEach(product -> product.setPurchase(purchase));
+
         return mapper.toPurchaseDTO(purchaseCrudRepository.save(purchase));
-        */
-        return null;
     }
    
 }

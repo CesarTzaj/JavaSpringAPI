@@ -28,7 +28,7 @@ public class ProductRespository implements ProductRepositoryDTO{
     
     @Override
     public Optional<List<ProductDTO>> getByCategory(int CategoryId){
-        List<Product> products = productCrudRepository.findByCategoryIdOrderByNameAsc(CategoryId);
+        List<Product> products = productCrudRepository.findByCategoryIdOrderByNameDesc(CategoryId);
         return Optional.of(productMapper.toProductDTOs(products));
     }
 

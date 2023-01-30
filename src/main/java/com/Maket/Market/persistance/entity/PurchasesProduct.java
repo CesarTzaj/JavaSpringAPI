@@ -22,7 +22,7 @@ public class PurchasesProduct {
 
     @ManyToOne
     @MapsId("purchaseId")
-    @JoinColumn(name = "purchase_id", updatable = false, insertable = false)
+    @JoinColumn(name = "purchase_id", updatable = false, insertable = false )
     private Purchase purchase;
 
     @ManyToOne
@@ -76,5 +76,4 @@ public class PurchasesProduct {
     public void setProduct(Product product) {
         this.product = product;
     }
-
 }

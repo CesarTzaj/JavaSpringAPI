@@ -8,5 +8,5 @@ import org.springframework.data.repository.CrudRepository;
 
 
 public interface PurchaseCrudRepository extends CrudRepository<Purchase, Integer>{
-    Optional<List<Purchase>> findByCustomerId(String customerId);
+    Optional<List<Purchase>> findByCustomerId(int customerId);
 }

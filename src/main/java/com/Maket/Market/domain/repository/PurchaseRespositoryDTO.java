@@ -8,6 +8,6 @@ import java.util.Optional;
 
 public interface PurchaseRespositoryDTO {
     List<PurchaseDTO> getAll();
-    Optional<List<PurchaseDTO>> getByCustomerId(String customerId);
+    Optional<List<PurchaseDTO>> getByCustomerId(int customerId);
     PurchaseDTO save(PurchaseDTO purchaseDTO);    
 }

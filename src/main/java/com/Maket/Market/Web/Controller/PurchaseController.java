@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,10 +29,14 @@ public class PurchaseController {
     
     
     @GetMapping("/customer/{id}")
-    public ResponseEntity<List<PurchaseDTO>> findByCustomerId(@PathVariable("id") String customerId){
+    public ResponseEntity<List<PurchaseDTO>> findByCustomerId(@PathVariable("id") int customerId){
         return purchaseService.findByCustomerId(customerId)
                 .map(purchase -> new ResponseEntity<>(purchase, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     
+    @PostMapping("save")
+    public ResponseEntity<PurchaseDTO> save(@RequestBody PurchaseDTO purchaseDTO){
+    return new ResponseEntity<>(purchaseService.save(purchaseDTO), HttpStatus.OK);
+    }
 }
